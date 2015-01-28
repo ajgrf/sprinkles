@@ -128,36 +128,19 @@ else
   call s:Style("Normal", "", "", "")
 endif
 
-call s:Plain("Identifier", "Type", "Ignore", "Todo", "Constant")
+call s:Plain("lCursor", "Constant", "Identifier", "Ignore", "Type")
 
 ""           HIGHLIGHT GROUP   TEXT       BACKGROUND ATTRIBUTES
-call s:Style("Underlined",     "",        "",        "underline")
 call s:Style("Statement",      "",        "",        "bold")
 call s:Style("Comment",        s:blue,    "",        "")
 call s:Style("String",         s:red,     "",        "")
-call s:Style("Error",          s:white,   s:red,     "bold")
-call s:Style("MatchParen",     "",        s:cyan,    "")
-
-call s:Style("PreProc",        s:magenta, "",        "")
 call s:Style("Special",        s:magenta, "",        "")
 call s:Style("SpecialComment", s:blue,    "",        "")
-
-" Checklist:
-"
-" lCursor
-" MatchParen
-" Normal
-" Comment
-" Constant Character Number Boolean Float
-" Special Tag SpecialChar Delimiter SpecialComment Debug
-" Identifier Function
-" Statement Conditional Repeat Label Operator Keyword Exception
-" PreProc Include Define Macro PreCondit
-" Type StorageClass Structure Typedef
-" Underlined
-" Ignore
-" Error
-" Todo
+call s:Style("PreProc",        s:magenta, "",        "")
+call s:Style("Underlined",     "",        "",        "underline")
+call s:Style("Error",          s:white,   s:red,     "bold")
+call s:Style("Todo",           "",        s:yellow,  "")
+call s:Style("MatchParen",     "",        s:cyan,    "")
 
 " }}}
 

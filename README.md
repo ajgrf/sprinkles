@@ -1,7 +1,7 @@
 # sprinkles
 
 Sprinkles is a vim colorscheme with a user-configurable color palette, the
-purpose of which is to make it easy to sync with your terminal's color scheme.
+purpose of which is to make it easy to match to your terminal's color scheme.
 
 ## Installation
 
@@ -18,7 +18,7 @@ I had tremendous difficulty getting my terminal vim colorscheme to match my
 GUI colorscheme, even with themes which provided a matching terminal theme.
 The approach taken by many other colorschemes is to emulate the GUI theme using
 the terminal's 256-color palette, with the result that my terminal vim did not
-exactly match the GUI **nor** my terminal's theme.
+exactly match my GUI **or** my terminal theme.
 
 Sprinkles tackles this problem by restricting terminal colors to the user-set
 colors 0-7. A configuration option is available to set the GUI color palette
@@ -32,8 +32,9 @@ themed terminal, which specifically means:
     includes most terminal themes in the wild, but excludes crazy palettes
     like solarized or base16.
 
-It shouldn't matter whether you use a light or dark theme. Some color palettes
-which break these rules may look good by accident.
+It shouldn't matter whether you use a light or dark theme (just make sure to
+set the background option appropriately). Some color palettes which break these
+rules may look good by accident.
 
 In addition, sprinkles aims to look a bit less busy than other colorschemes.
 
