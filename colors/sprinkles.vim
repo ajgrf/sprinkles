@@ -1,12 +1,12 @@
 " sprinkles - a vim colorscheme with a configurable color palette
 " Maintainer: Alex Griffin <alex@alexjgriffin.com>
-" Version:    0.0.1-pre
+" Version:    0.1.0-pre
 " License:    This file is placed under an ISC-style license. See the included
 "             LICENSE file for details.
 
 " Standard Colorscheme Boilerplate {{{
 
-hi clear
+highlight clear
 if exists("syntax_on")
   syntax reset
 endif
@@ -32,6 +32,7 @@ let s:default_light = {
   \}
 
 " Default gui colors if background is *dark* and no custom palette is used.
+" This is the Tango theme from gnome-terminal.
 let s:default_dark = {
   \'text':       '#d3d7cf',
   \'background': '#222222',
@@ -52,9 +53,31 @@ else
   let s:palette = s:default_dark
 endif
 
+" prints a warning message
+function! s:Warn(msg)
+  echohl WarningMsg
+  echomsg "sprinkles: " . a:msg
+  echohl NONE
+endfunction
+
+" ensures the given dictionary only contains rgb hex colors
+function! s:CheckPalette(palette)
+  for color in values(a:palette)
+    if color !~# '^#\x\{6}$'
+      call s:Warn("invalid palette color: " . color)
+      return 0
+    endif
+  endfor
+  return 1
+endfunction
+
 " override default colors with custom palette
 if exists("g:sprinkles_palette")
-  call extend(s:palette, g:sprinkles_palette)
+  if s:CheckPalette(g:sprinkles_palette)
+    call extend(s:palette, g:sprinkles_palette)
+  else
+    call s:Warn("using default palette instead")
+  endif
 endif
 
 " }}}
@@ -62,12 +85,8 @@ endif
 " Utility Functions & Variables {{{
 
 " Set some convenience variables so that, e.g. s:palette.red can be referred
-" to as s:red. NOTE: malicious values of g:sprinkles_palette could inject
-" arbitrary vimscript here. This is a non-issue though, because anyone able to
-" attack in this way would already have access to more important things.
-for k in keys(s:palette)
-  execute "let s:" . k . " = " . "s:palette." . k
-endfor
+" to as s:red.
+call extend(s:, s:palette)
 
 " used to look up the corresponding terminal color index for a color
 let s:color_indices = [
