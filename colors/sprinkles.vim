@@ -108,14 +108,6 @@ function! s:Style(hlgroup, fg, bg, attr)
     \ l:guibg . " gui=" . l:attr
 endfunction
 
-" Sets the given highlight groups to a plain text style, using the normal
-" background and foreground colors.
-function! s:Plain(...)
-  for hlgroup in a:000
-    call s:Style(hlgroup, "", "", "")
-  endfor
-endfunction
-
 " }}}
 
 " Standard Syntax Highlighting Groups {{{
@@ -126,9 +118,11 @@ else
   call s:Style("Normal", "", "", "")
 endif
 
-call s:Plain("Constant", "Identifier", "Ignore", "Type")
-
 ""           HIGHLIGHT GROUP   TEXT       BACKGROUND ATTRIBUTES
+call s:Style("Constant",       "",        "",        "")
+call s:Style("Identifier",     "",        "",        "")
+call s:Style("Ignore",         "",        "",        "")
+call s:Style("Type",           "",        "",        "")
 call s:Style("Statement",      "",        "",        "bold")
 call s:Style("Comment",        s:blue,    "",        "")
 call s:Style("String",         s:red,     "",        "")
