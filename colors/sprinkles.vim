@@ -69,7 +69,6 @@ endif
 for k in keys(s:palette)
   execute "let s:" . k . " = " . "s:palette." . k
 endfor
-let s:offbase = &background == "light" ? s:white : s:dark_grey
 
 " used to look up the corresponding terminal color index for a color
 let s:color_indices = [
@@ -128,7 +127,7 @@ else
   call s:Style("Normal", "", "", "")
 endif
 
-call s:Plain("lCursor", "Constant", "Identifier", "Ignore", "Type")
+call s:Plain("Constant", "Identifier", "Ignore", "Type")
 
 ""           HIGHLIGHT GROUP   TEXT       BACKGROUND ATTRIBUTES
 call s:Style("Statement",      "",        "",        "bold")
@@ -157,8 +156,8 @@ call s:Style("NonText",        s:cyan,    "",        "")
 call s:Style("SpecialKey",     s:cyan,    "",        "")
 call s:Style("Search",         "",        s:yellow,  "")
 call s:Style("IncSearch",      "",        s:yellow,  "")
-call s:Style("LineNr",         s:cyan,    s:offbase, "")
-call s:Style("CursorLineNr",   s:cyan,    s:offbase, "")
+call s:Style("LineNr",         s:cyan,    "",        "")
+call s:Style("CursorLineNr",   s:cyan,    "",        "")
 call s:Style("ErrorMsg",       s:white,   s:red,     "bold")
 call s:Style("Directory",      s:blue,    "",        "bold")
 
@@ -167,46 +166,45 @@ call s:Style("DiffDelete",     s:red,     "",        "bold")
 call s:Style("DiffChange",     s:magenta, "",        "")
 call s:Style("DiffText",       s:magenta, "",        "bold")
 
-call s:Style("Folded",         s:cyan,    s:offbase, "")
-call s:Style("FoldColumn",     s:cyan,    s:offbase, "")
-call s:Style("SignColumn",     s:cyan,    s:offbase, "")
+call s:Style("Folded",         s:cyan,    "",        "")
+call s:Style("FoldColumn",     s:cyan,    "",        "")
+call s:Style("SignColumn",     s:cyan,    "",        "")
 
 call s:Style("Title",          s:magenta, "",        "")
 
 call s:Style("Pmenu",          s:white,   s:magenta, "")
-call s:Style("PmenuSel",       s:black,   s:offbase, "")
-call s:Style("PmenuSbar",      "",        s:offbase, "")
+call s:Style("PmenuSel",       s:black,   "",        "")
+call s:Style("PmenuSbar",      "",        "",        "")
 call s:Style("PmenuThumb",     "",        s:black,   "")
 
-" TODO:
-"
-" MoreMsg
-" ModeMsg
-" Question
-" WarningMsg
-"
-" Visual
-" VisualNOS
-"
-" StatusLine
-" StatusLineNC
-"
-" TabLine
-" TabLineSel
-" TabLineFill
-"
-" SpellBad
-" SpellCap
-" SpellRare
-" SpellLocal
-"
-" VertSplit
-"
-" WildMenu
-" Conceal
-" CursorColumn
-" CursorLine
-" ColorColumn
-" Cursor
+call s:Style("MoreMsg",        s:cyan,    "",        "")
+call s:Style("ModeMsg",        "",        "",        "bold")
+call s:Style("Question",       s:cyan,    "",        "")
+call s:Style("WarningMsg",     s:red,     "",        "")
+
+call s:Style("SpellBad",       "",        s:red,     "")
+call s:Style("SpellCap",       "",        s:green,   "")
+call s:Style("SpellRare",      "",        s:green,   "")
+call s:Style("SpellLocal",     "",        s:green,   "")
+
+call s:Style("Cursor",         "",        "",        "reverse")
+call s:Style("lCursor",        "",        "",        "reverse")
+call s:Style("Visual",         "",        "",        "reverse")
+call s:Style("VisualNOS",      "",        "",        "bold,underline")
+
+" call s:Style("StatusLine",     "",        "",        "")
+" call s:Style("StatusLineNC",   "",        "",        "")
+
+" call s:Style("TabLine",        "",        "",        "")
+" call s:Style("TabLineSel",     "",        "",        "")
+" call s:Style("TabLineFill",    "",        "",        "")
+
+" call s:Style("VertSplit",      "",        "",        "")
+
+" call s:Style("WildMenu",       "",        "",        "")
+" call s:Style("Conceal",        "",        "",        "")
+" call s:Style("CursorColumn",   "",        "",        "")
+" call s:Style("CursorLine",     "",        "",        "")
+" call s:Style("ColorColumn",    "",        "",        "")
 
 " }}}
