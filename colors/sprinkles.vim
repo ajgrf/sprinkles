@@ -32,18 +32,17 @@ let s:default_light = {
   \}
 
 " Default gui colors if background is *dark* and no custom palette is used.
-" TODO: track down the original terminal theme this is based on.
 let s:default_dark = {
-  \'text':       '#c5c5c5',
-  \'background': '#161616',
-  \'black':      '#161616',  'dark_grey':      '#4a4a4a',
-  \'red':        '#a65353',  'bright_red':     '#cc6666',
-  \'green':      '#909653',  'bright_green':   '#b5bd68',
-  \'yellow':     '#bd9c5a',  'bright_yellow':  '#f0c674',
-  \'blue':       '#5f788c',  'bright_blue':    '#81a2be',
-  \'magenta':    '#816b87',  'bright_magenta': '#b294bb',
-  \'cyan':       '#668c88',  'bright_cyan':    '#8abeb7',
-  \'white':      '#c5c5c5',  'bright_white':   '#f7f7f7',
+  \'text':       '#d3d7cf',
+  \'background': '#222222',
+  \'black':      '#000000',  'dark_grey':      '#555753',
+  \'red':        '#cc0000',  'bright_red':     '#ef2929',
+  \'green':      '#4e9a06',  'bright_green':   '#8ae234',
+  \'yellow':     '#c4a000',  'bright_yellow':  '#fce94f',
+  \'blue':       '#3465a4',  'bright_blue':    '#729fcf',
+  \'magenta':    '#75507b',  'bright_magenta': '#ad7fa8',
+  \'cyan':       '#06989a',  'bright_cyan':    '#34e2e2',
+  \'white':      '#d3d7cf',  'bright_white':   '#eeeeec',
   \}
 
 " choose default colors based on background
@@ -95,8 +94,8 @@ function! s:Style(hlgroup, fg, bg, attr)
 
   let l:ctermfg = l:fg_idx == -1 ? "NONE" : l:fg_idx
   let l:ctermbg = l:bg_idx == -1 ? "NONE" : l:bg_idx
-  let l:guifg   = l:fg_idx == -1 ? "NONE" : a:fg
-  let l:guibg   = l:bg_idx == -1 ? "NONE" : a:bg
+  let l:guifg   = a:fg     == "" ? "NONE" : a:fg
+  let l:guibg   = a:bg     == "" ? "NONE" : a:bg
   let l:attr    = a:attr   == "" ? "NONE" : a:attr
 
   " use bright colors with the bold attr
