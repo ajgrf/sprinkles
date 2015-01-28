@@ -14,6 +14,54 @@ let g:colors_name = "sprinkles"
 
 " }}}
 
+" Utility Functions {{{
+
+" prints a warning message
+function! s:Warn(msg)
+  echohl WarningMsg
+  echomsg "sprinkles: " . a:msg
+  echohl NONE
+endfunction
+
+" ensures the given dictionary only contains rgb hex colors
+function! s:CheckPalette(palette)
+  for color in values(a:palette)
+    if color !~# '^#\x\{6}$'
+      call s:Warn("invalid palette color: " . color)
+      return 0
+    endif
+  endfor
+  return 1
+endfunction
+
+" Sets the text color, background color, and attributes for the given
+" highlight group, in both terminal and gui vim. The values of a:hlgroup and
+" a:attr are directly inserted into a highlight command. Valid values for
+" a:fg and a:bg include the empty string (indicating NONE) and the first
+" eight items in s:color_indices.
+function! s:Style(hlgroup, fg, bg, attr)
+  " get terminal color index
+  let l:fg_idx = index(s:color_indices, a:fg)
+  let l:bg_idx = index(s:color_indices, a:bg)
+
+  let l:ctermfg = l:fg_idx == -1 ? "NONE" : l:fg_idx
+  let l:ctermbg = l:bg_idx == -1 ? "NONE" : l:bg_idx
+  let l:guifg   = a:fg     == "" ? "NONE" : a:fg
+  let l:guibg   = a:bg     == "" ? "NONE" : a:bg
+  let l:attr    = a:attr   == "" ? "NONE" : a:attr
+
+  " use bright colors with the bold attr
+  if a:attr =~# "bold" && (0 <= l:fg_idx && l:fg_idx < 8)
+    let l:guifg = s:color_indices[l:fg_idx + 8]
+  endif
+
+  execute "highlight " . a:hlgroup . " ctermfg=" . l:ctermfg . " ctermbg=" .
+    \ l:ctermbg . " cterm=" . l:attr . " guifg=" . l:guifg . " guibg=" .
+    \ l:guibg . " gui=" . l:attr
+endfunction
+
+" }}}
+
 " Set Color Palette {{{
 
 " Default gui colors if background is *light* and no custom palette is used.
@@ -53,24 +101,6 @@ else
   let s:palette = s:default_dark
 endif
 
-" prints a warning message
-function! s:Warn(msg)
-  echohl WarningMsg
-  echomsg "sprinkles: " . a:msg
-  echohl NONE
-endfunction
-
-" ensures the given dictionary only contains rgb hex colors
-function! s:CheckPalette(palette)
-  for color in values(a:palette)
-    if color !~# '^#\x\{6}$'
-      call s:Warn("invalid palette color: " . color)
-      return 0
-    endif
-  endfor
-  return 1
-endfunction
-
 " override default colors with custom palette
 if exists("g:sprinkles_palette")
   if s:CheckPalette(g:sprinkles_palette)
@@ -79,10 +109,6 @@ if exists("g:sprinkles_palette")
     call s:Warn("using default palette instead")
   endif
 endif
-
-" }}}
-
-" Utility Functions & Variables {{{
 
 " Set some convenience variables so that, e.g. s:palette.red can be referred
 " to as s:red.
@@ -100,32 +126,6 @@ let s:color_indices = [
   \                                                      s:bright_cyan,
   \                                                              s:bright_white,
   \]
-
-" Sets the text color, background color, and attributes for the given
-" highlight group, in both terminal and gui vim. The values of a:hlgroup and
-" a:attr are directly inserted into a highlight command. Valid values for
-" a:fg and a:bg include the empty string (indicating NONE) and the first
-" eight items in s:color_indices.
-function! s:Style(hlgroup, fg, bg, attr)
-  " get terminal color index
-  let l:fg_idx = index(s:color_indices, a:fg)
-  let l:bg_idx = index(s:color_indices, a:bg)
-
-  let l:ctermfg = l:fg_idx == -1 ? "NONE" : l:fg_idx
-  let l:ctermbg = l:bg_idx == -1 ? "NONE" : l:bg_idx
-  let l:guifg   = a:fg     == "" ? "NONE" : a:fg
-  let l:guibg   = a:bg     == "" ? "NONE" : a:bg
-  let l:attr    = a:attr   == "" ? "NONE" : a:attr
-
-  " use bright colors with the bold attr
-  if a:attr =~# "bold" && (0 <= l:fg_idx && l:fg_idx < 8)
-    let l:guifg = s:color_indices[l:fg_idx + 8]
-  endif
-
-  execute "highlight " . a:hlgroup . " ctermfg=" . l:ctermfg . " ctermbg=" .
-    \ l:ctermbg . " cterm=" . l:attr . " guifg=" . l:guifg . " guibg=" .
-    \ l:guibg . " gui=" . l:attr
-endfunction
 
 " }}}
 
