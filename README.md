@@ -11,7 +11,7 @@ Sprinkles with the default light color palette:
 
 Sprinkles with a custom dark color palette:
 
-![darkshot](http://i.imgur.com/rOKl9Bk.png "darkshot")
+![darkshot](http://i.imgur.com/Im7I4Jb.png "darkshot")
 
 ## Installation
 
