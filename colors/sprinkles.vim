@@ -54,7 +54,7 @@ endif
 
 " override default colors with custom palette
 if exists("g:sprinkles_palette")
-  merge(s:palette, g:sprinkles_palette)
+  call extend(s:palette, g:sprinkles_palette)
 endif
 
 " }}}
