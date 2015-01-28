@@ -137,7 +137,7 @@ call s:Style("SpecialComment", s:blue,    "",        "")
 call s:Style("PreProc",        s:magenta, "",        "")
 call s:Style("Underlined",     "",        "",        "underline")
 call s:Style("Error",          s:white,   s:red,     "bold")
-call s:Style("Todo",           "",        s:yellow,  "")
+call s:Style("Todo",           s:black,   s:yellow,  "")
 call s:Style("MatchParen",     "",        s:cyan,    "")
 
 " }}}
@@ -153,8 +153,8 @@ call s:Style("MatchParen",     "",        s:cyan,    "")
 ""           HIGHLIGHT GROUP   TEXT       BACKGROUND ATTRIBUTES
 call s:Style("NonText",        s:cyan,    "",        "")
 call s:Style("SpecialKey",     s:cyan,    "",        "")
-call s:Style("Search",         "",        s:yellow,  "")
-call s:Style("IncSearch",      "",        s:yellow,  "")
+call s:Style("Search",         s:black,   s:yellow,  "")
+call s:Style("IncSearch",      s:black,   s:yellow,  "")
 call s:Style("LineNr",         s:cyan,    "",        "")
 call s:Style("CursorLineNr",   s:cyan,    "",        "")
 call s:Style("ErrorMsg",       s:white,   s:red,     "bold")
@@ -172,8 +172,8 @@ call s:Style("SignColumn",     s:cyan,    "",        "")
 call s:Style("Title",          s:magenta, "",        "")
 
 call s:Style("Pmenu",          s:white,   s:magenta, "")
-call s:Style("PmenuSel",       s:black,   "",        "")
-call s:Style("PmenuSbar",      "",        "",        "")
+call s:Style("PmenuSel",       "",        "",        "reverse")
+call s:Style("PmenuSbar",      "",        s:white,   "")
 call s:Style("PmenuThumb",     "",        s:black,   "")
 
 call s:Style("MoreMsg",        s:cyan,    "",        "")
@@ -191,19 +191,21 @@ call s:Style("lCursor",        "",        "",        "reverse")
 call s:Style("Visual",         "",        "",        "reverse")
 call s:Style("VisualNOS",      "",        "",        "bold,underline")
 
-" call s:Style("StatusLine",     "",        "",        "")
-" call s:Style("StatusLineNC",   "",        "",        "")
+call s:Style("TabLine",        "",        "",        "")
+call s:Style("TabLineSel",     s:cyan,    "",        "")
+call s:Style("TabLineFill",    "",        "",        "")
 
-" call s:Style("TabLine",        "",        "",        "")
-" call s:Style("TabLineSel",     "",        "",        "")
-" call s:Style("TabLineFill",    "",        "",        "")
+call s:Style("WildMenu",       s:white,   s:magenta, "bold")
 
-" call s:Style("VertSplit",      "",        "",        "")
+call s:Style("ColorColumn",    "",        s:red,     "")
+call s:Style("CursorColumn",   "",        "",        "reverse")
+call s:Style("CursorLine",     "",        "",        "underline")
 
-" call s:Style("WildMenu",       "",        "",        "")
-" call s:Style("Conceal",        "",        "",        "")
-" call s:Style("CursorColumn",   "",        "",        "")
-" call s:Style("CursorLine",     "",        "",        "")
-" call s:Style("ColorColumn",    "",        "",        "")
+call s:Style("VertSplit",      "",        "",        "reverse")
+
+call s:Style("StatusLine",     "",        "",        "reverse,bold")
+call s:Style("StatusLineNC",   "",        "",        "reverse")
+
+" Purposefully left unset: Conceal
 
 " }}}
