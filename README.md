@@ -55,5 +55,6 @@ described above. Just define the variable `g:sprinkles_palette` in your vimrc:
       \'cyan':       '#668c88',  'bright_cyan':    '#8abeb7',
       \'white':      '#c5c5c5',  'bright_white':   '#f7f7f7',
       \}
+    colorscheme sprinkles
 
 [1]: https://github.com/tpope/vim-pathogen
