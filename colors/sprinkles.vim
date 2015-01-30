@@ -1,6 +1,6 @@
 " sprinkles - a vim colorscheme with a configurable color palette
 " Maintainer: Alex Griffin <alex@alexjgriffin.com>
-" Version:    0.1.0
+" Version:    0.2.0-pre
 " License:    This file is placed under an ISC-style license. See the included
 "             LICENSE file for details.
 
@@ -157,6 +157,10 @@ call s:Style("MatchParen",     "",        s:cyan,    "")
 
 " FileType-specific Tweaks {{{
 
+call s:Style("javascriptFunction",   "",  "",        "bold")
+call s:Style("javascriptIdentifier", "",  "",        "bold")
+call s:Style("luaFunction",    "",        "",        "bold")
+call s:Style("phpDefine",      "",        "",        "bold")
 call s:Style("rubyDefine",     "",        "",        "bold")
 
 " }}}
