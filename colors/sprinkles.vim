@@ -157,7 +157,7 @@ call s:Style("MatchParen",     "",        s:cyan,    "")
 
 " FileType-specific Tweaks {{{
 
-" nothing here yet...
+call s:Style("rubyDefine",     "",        "",        "bold")
 
 " }}}
 
