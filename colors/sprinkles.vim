@@ -157,6 +157,8 @@ call s:Style("MatchParen",     "",        s:cyan,    "")
 
 " FileType-specific Tweaks {{{
 
+""           HIGHLIGHT GROUP   TEXT       BACKGROUND ATTRIBUTES
+call s:Style("javaStorageClass","",       "",        "bold")
 call s:Style("javascriptFunction",   "",  "",        "bold")
 call s:Style("javascriptIdentifier", "",  "",        "bold")
 call s:Style("luaFunction",    "",        "",        "bold")
