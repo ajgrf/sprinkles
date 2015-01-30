@@ -165,6 +165,10 @@ call s:Style("luaFunction",    "",        "",        "bold")
 call s:Style("phpDefine",      "",        "",        "bold")
 call s:Style("rubyDefine",     "",        "",        "bold")
 
+" this might be a bit too invasive, but for some reason phpVarSelector doesn't
+" respond to normal styling
+highlight link phpVarSelector phpIdentifier
+
 " }}}
 
 " Vim UI Highlight Groups {{{
