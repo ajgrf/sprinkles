@@ -1,5 +1,5 @@
 " sprinkles - a vim colorscheme with a configurable color palette
-" Maintainer: Alex Griffin <alex@alexjgriffin.com>
+" Maintainer: Alex Griffin <a@ajgrf.com>
 " Version:    0.2.0-pre
 " License:    This file is placed under an ISC-style license. See the included
 "             LICENSE file for details.
