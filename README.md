@@ -20,7 +20,7 @@ colorscheme. If you don't know how to install vim plugins, I recommend
 installing sprinkles using [pathogen][1]. Once pathogen is set up, just clone
 this repo into your bundle directory:
 
-    git clone https://github.com/alexjgriffin/sprinkles ~/.vim/bundle/sprinkles
+    git clone https://github.com/ajgrf/sprinkles ~/.vim/bundle/sprinkles
 
 ## Design & Motivation
 
