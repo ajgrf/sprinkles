@@ -7,11 +7,11 @@ allows you to easily match it with your terminal's theme.
 
 Sprinkles with the default light color palette:
 
-![lightshot](http://i.imgur.com/e2paA1V.png "lightshot")
+![Light Palette Screenshot](./img/lightshot.png "Light Palette Screenshot")
 
 Sprinkles with a custom dark color palette:
 
-![darkshot](http://i.imgur.com/Im7I4Jb.png "darkshot")
+![Dark Palette Screenshot](./img/darkshot.png "Dark Palette Screenshot")
 
 ## Installation
 
