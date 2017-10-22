@@ -160,11 +160,8 @@ call s:Style("javascriptFunction",   "",  "",        "bold")
 call s:Style("javascriptIdentifier", "",  "",        "bold")
 call s:Style("luaFunction",    "",        "",        "bold")
 call s:Style("phpDefine",      "",        "",        "bold")
+call s:Style("phpVarSelector", s:text,    "",        "")
 call s:Style("rubyDefine",     "",        "",        "bold")
-
-" this might be a bit too invasive, but for some reason phpVarSelector doesn't
-" respond to normal styling
-highlight link phpVarSelector phpIdentifier
 
 " }}}
 
