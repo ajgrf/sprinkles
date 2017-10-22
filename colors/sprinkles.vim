@@ -131,11 +131,8 @@ let s:color_indices = [
 
 " Standard Syntax Highlighting Groups {{{
 
-if has("gui_running")
-  call s:Style("Normal", s:text, s:background, "")
-else
-  call s:Style("Normal", "", "", "")
-endif
+execute "highlight Normal ctermfg=NONE ctermbg=NONE cterm=NONE guifg=" .
+  \ s:text . " guibg=" . s:background . " gui=NONE"
 
 ""           HIGHLIGHT GROUP   TEXT       BACKGROUND ATTRIBUTES
 call s:Style("Constant",       "",        "",        "")
